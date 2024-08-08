@@ -6,7 +6,7 @@
 --Your script can be executed on any database
 
 CREATE TABLE IF NOT EXISTS users (
-    id INTEGER NOT NULL AUTOINCREMENT PRIMARY KEY,
+    id INT NOT NULL AUTOINCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL UNIQUE,
     name VARCHAR(255)
-)
+);
