@@ -1,7 +1,7 @@
 -- creates a trigger that decreases the quantity of an item after adding a new order
 DELIMITER $$ 
 CREATE TRIGGER check_email
-AFTER UPDATE ON users
+BEFORE UPDATE ON users
 FOR EACH ROW
 BEGIN
 IF NEW.email <> OLD.email
