@@ -4,4 +4,4 @@
 
 def schools_by_topic(mongo_collection, topic):
     """ Get all documents that have a specific topic """
-    mongo_collection.find({"topics": topic})
+    mongo_collection.find_many({"topics": topic})
