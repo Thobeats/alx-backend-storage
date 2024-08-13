@@ -2,7 +2,6 @@
 """Mongo DB with PyMongo"""
 
 
-def update_topics(mongo_collection, name, topics):
-    """ Update a document in the collection """
-    mongo_collection.update({"name": name},
-                            {"$set": {"topics": topics}})
+def schools_by_topic(mongo_collection, topic):
+    """ Get all documents that have a specific topic """
+    mongo_collection.find({"topics": topic})
