@@ -18,6 +18,7 @@ def count_calls(method: Callable) -> Callable:
         return method(self, *args, **kwargs)
     return wrapper
 
+
 def call_history(method: Callable) -> Callable:
     """Store the history of inputs and outputs"""
     key = method.__qualname__
@@ -33,6 +34,7 @@ def call_history(method: Callable) -> Callable:
 
         return output
     return wrapper
+
 
 def replay(method: Callable) -> None:
     """Shows a history of a function"""
