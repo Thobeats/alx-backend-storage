@@ -40,4 +40,6 @@ if __name__ == "__main__":
     ])
 
     for ips in top_ips:
-        print(f'\t{ips.get('ip')}: {ips.get('count')}')
+        ip = ips.get("ip")
+        count = ips.get("count")
+        print(f'\t{ip}: {count}')
