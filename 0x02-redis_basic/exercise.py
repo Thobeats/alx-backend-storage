@@ -10,6 +10,7 @@ def count_calls(method: Callable) -> Callable:
     """Count the number of times the Cache class was called"""
     @functools.wraps(method)
     def wrapper(self, *args, **kwargs):
+        """Wrapper to count calls"""
         key = method.__qualname__
 
         self._redis.incr(key)
@@ -25,6 +26,7 @@ def call_history(method: Callable) -> Callable:
 
     @functools.wraps(method)
     def wrapper(self, *args, **kwargs):
+        """Wrapper to call history"""
         self._redis.rpush(input_key, str(args))
         output = method(self, *args, **kwargs)
         self._redis.rpush(output_key, str(output))
