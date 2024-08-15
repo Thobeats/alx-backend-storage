@@ -41,11 +41,11 @@ def replay(method: Callable) -> None:
     function_name = method.__qualname__
     cache = redis.Redis()
     function_calls = cache.get(function_name).decode('UTF-8')
-    print("{} was called {} times".format(function_name, function_calls))
+    print("{} was called {} times:".format(function_name, function_calls))
     inputs = cache.lrange(function_name + ":inputs", 0, -1)
     outputs = cache.lrange(function_name + ":outputs", 0, -1)
     for i, o in zip(inputs, outputs):
-        print("{}(*{}) -> {}\n".format(function_name, i.decode('utf-8'),
+        print("{}(*{}) -> {}".format(function_name, i.decode('utf-8'),
                                      o.decode('utf-8')))
 
 
