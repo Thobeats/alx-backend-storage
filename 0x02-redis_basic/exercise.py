@@ -45,7 +45,7 @@ def replay(method: Callable) -> None:
     inputs = cache.lrange(function_name + ":inputs", 0, -1)
     outputs = cache.lrange(function_name + ":outputs", 0, -1)
     for i, o in zip(inputs, outputs):
-        print("{}(*{}) -> {}".format(function_name, i.decode('utf-8'),
+        print("{}(*{}) -> {}\n".format(function_name, i.decode('utf-8'),
                                      o.decode('utf-8')))
 
 
